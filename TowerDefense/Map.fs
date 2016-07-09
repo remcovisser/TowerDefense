@@ -18,7 +18,7 @@ let InitializeMap (size: Vector2) =
         map.Add(x, tile)
         for o in 0 .. height do
             let y = o|>int
-            let tile = {position = new Vector2(((i * tileSize) |> float32), ((o * tileSize) |> float32))}
+            let tile = {Tile.position = new Vector2(((i * tileSize) |> float32), ((o * tileSize) |> float32))}
             map.[x].Add(y, tile)
     map 
 

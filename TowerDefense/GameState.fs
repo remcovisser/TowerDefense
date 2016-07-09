@@ -10,9 +10,16 @@ open Entities
 
 
 let update dt state =
-   state
+    let spawner' = Spawner.update dt state
+    let enemies' = fst spawner' |> List.map(fun enemy -> Enemy.update dt enemy state)
+    {
+        state with 
+            enemies = enemies' |> List.map(fun enemy -> Enemy.update dt enemy state)
+            spawner = snd spawner'
+    }
 
 let draw (spritebatch: SpriteBatch) (state: GameState) =
     spritebatch.Draw(state.background, Vector2.Zero, Color.White)
     GameMap.draw spritebatch state
-    ()
+    state.enemies |>
+        List.iter(fun enemy -> Enemy.draw spritebatch state.texture enemy)

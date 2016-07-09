@@ -31,11 +31,15 @@ type TowerDefenseGame() as this =
         let background = this.Content.Load<Texture2D> "Background.jpg"
         let tileBackground = this.Content.Load<Texture2D> "Tile.png"
         let map = GameMap.InitializeMap mapsize
+        let enemies =  List.empty<Enemy>
+        let spawner = {enemy1SpawnRate = 1.f; enemy1Cooldown = 0.f}
         do state <- {
             texture = plainTexture
             background = background
             tileBackground = tileBackground
             map = map
+            enemies = enemies
+            spawner = spawner
         }
       
     override this.Update(gameTime) =

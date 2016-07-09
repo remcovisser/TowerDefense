@@ -60,6 +60,8 @@
     <Compile Include="Entities.fs" />
     <Compile Include="Tile.fs" />
     <Compile Include="Map.fs" />
+    <Compile Include="Spawner.fs" />
+    <Compile Include="Enemy.fs" />
     <Compile Include="GameState.fs" />
     <Compile Include="TowerDefense.fs" />
     <Compile Include="Program.fs" />
