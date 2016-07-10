@@ -33,6 +33,7 @@ type TowerDefenseGame() as this =
         let map = GameMap.InitializeMap mapsize
         let enemies =  List.empty<Enemy>
         let spawner = {enemy1SpawnRate = 1.f; enemy1Cooldown = 0.f}
+        let towers = List.empty<Tower>
         do state <- {
             texture = plainTexture
             background = background
@@ -40,6 +41,7 @@ type TowerDefenseGame() as this =
             map = map
             enemies = enemies
             spawner = spawner
+            towers = towers
         }
       
     override this.Update(gameTime) =

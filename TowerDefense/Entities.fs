@@ -16,6 +16,14 @@ type Enemy = {
     points: int
 }
 
+type Tower = {
+    position: Vector2
+    range: float32
+    damage: float32
+    attackSpeed: float32
+    price: int
+}
+
 type Spawner = {
     enemy1SpawnRate: float32
     enemy1Cooldown: float32
@@ -28,4 +36,5 @@ type GameState = {
     map: System.Collections.Generic.Dictionary<int, System.Collections.Generic.Dictionary<int, Tile>>
     enemies: List<Enemy>
     spawner: Spawner
+    towers: List<Tower>
 }
