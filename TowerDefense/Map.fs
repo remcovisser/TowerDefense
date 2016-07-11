@@ -9,9 +9,10 @@ open Entities
 
 let InitializeMap (size: Vector2) = 
     let map = new Dictionary<int, Dictionary<int, Tile>>()
-    let width = (size.X / 25.f) |> int
-    let height = (size.Y / 25.f) |> int
     let tileSize = 50
+    let width = (size.X / (tileSize |> float32)) |> int
+    let height = (size.Y / (tileSize |> float32)) |> int
+
     for i in 0 .. width do
         let tile = new  Dictionary<int, Tile>()
         let x = i|>int

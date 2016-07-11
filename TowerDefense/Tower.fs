@@ -15,9 +15,21 @@ let draw (spritebatch: SpriteBatch) (texture: Texture2D) (tower: Tower) =
     ()
 
 let getTileByMousePosition (position: Point) =
-    let titleX = (position.X / 50 |> int) * 50 + 10 |> float32
-    let titleY = (position.Y / 50 |> int) * 50 + 10 |> float32
-    let position' = new Vector2(titleX, titleY)
+    printf "%i" GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height
+    printf "%i" GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width
+    let position' = 
+        match GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width with
+            (900, 1440) -> 
+                let titleX = ((position.X * 2) / 50 |> int) * 50 + 10 |> float32
+                let titleY = ((position.Y * 2) / 50 |> int) * 50 + 10 |> float32
+                let positionRounded = new Vector2(titleX, titleY)
+                positionRounded
+            | _ ->
+                let titleX = (position.X / 50 |> int) * 50 + 10 |> float32
+                let titleY = (position.Y / 50 |> int) * 50 + 10 |> float32
+                let positionRounded = new Vector2(titleX, titleY)
+                positionRounded
+    
     position'
 
 let buildTower (towers: List<Tower>) = 
