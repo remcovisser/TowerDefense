@@ -12,7 +12,7 @@ open Entities
 let update dt state =
     let spawner' = Spawner.update dt state
     let enemies' = fst spawner' |> List.map(fun enemy -> Enemy.update dt enemy state)
-    let towers' = Tower.buildTower state.towers
+    let towers' = Tower.update dt state
     {
         state with 
             enemies = enemies' |> List.map(fun enemy -> Enemy.update dt enemy state)

@@ -18,7 +18,7 @@ type Enemy = {
 
 type Tower = {
     position: Vector2
-    range: float32
+    range: int
     damage: float32
     attackSpeed: float32
     price: int
